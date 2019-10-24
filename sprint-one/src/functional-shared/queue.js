@@ -18,9 +18,6 @@ var extend = function(obj, extender) {
 
 var queueMethods = {
   enqueue: function(value) {
-    // add prop to this.storage where key is count = value
-    // increment count
-    // debugger;
     this.storage[this.count] = value;
     this.count++;
   },
