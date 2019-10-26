@@ -1,3 +1,6 @@
+// Prototypal instantiation: using Object.create
+// Use Object.create  with the object from step 2 to create instances of your class
+
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.

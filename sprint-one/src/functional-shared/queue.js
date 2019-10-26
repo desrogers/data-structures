@@ -1,3 +1,8 @@
+// Functional instantiation with shared methods:
+// Create an object that holds the methods that will be shared by all instances of the class
+// Use the keyword this in your methods
+// Use _.extend  to copy the methods onto the instance
+
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
@@ -40,5 +45,3 @@ var queueMethods = {
     return result;
   }
 };
-
-
