@@ -3,7 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
 
   _.extend(newTree, treeMethods);
-  newTree.children = [];  // fix me
+  newTree.children = [];
 
   return newTree;
 };
@@ -17,6 +17,25 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
+  var seen = false;
+
+  var findTarget = function(node) {
+    if (node.value === target) {
+      seen = true;
+    }
+
+    if (node.children.length !== 0) {
+      for (var i = 0; i < node.children.length; i++) {
+        findTarget(node.children[i]);
+      }
+    }
+
+    return;
+  };
+
+  findTarget(this);
+
+  return seen;
 };
 
 
