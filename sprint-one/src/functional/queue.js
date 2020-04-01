@@ -9,31 +9,31 @@ var Queue = function() {
   }; // stored in object so we could dynamically update start, end, and count...
 
   // Implement the methods below
-  var count = 1;
+  var counter = 1;
 
   someInstance.enqueue = function(value) {
-    storage[count] = value;
-    count++;
+    storage[counter] = value;
+    if (storage.start === 0) {
+      storage.start = storage.end = counter;
+    }
+    counter++;
+    storage.count++;
   };
 
   // dequeue() - Remove and return the string at the front of the queue
   someInstance.dequeue = function() {
-    var result;
-    for (var key in storage) {
-      result = storage[key];
-      delete storage[key];
-      break;
+    var result = storage[storage.start];
+    delete storage[storage.start];
+    storage.start++;
+    if (storage.count > 0) {    
+      storage.count--;
     }
     return result;
   };
 
   // size() - Return the number of items in the queue
   someInstance.size = function() {
-    var result = 0;
-    for (var key in storage) {
-      result++;
-    }
-    return result;
+    return storage.count;
   };
 
   return someInstance;
